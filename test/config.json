@@ -51,6 +51,10 @@
           "test/renderers/blender-cycles/render.py"
         ]
       }
+    },
+    {
+      "name": "rhodonite",
+      "description": "Rhodonite"
     }
   ],
   "scenarios": [
@@ -527,7 +531,8 @@
         "stellar",
         "babylon",
         "gltf-sample-viewer",
-        "three-gpu-pathtracer"
+        "three-gpu-pathtracer",
+        "rhodonite"
       ],
       "renderSkybox": true
     },
