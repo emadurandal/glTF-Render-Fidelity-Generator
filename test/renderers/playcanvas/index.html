@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+ <title>Babylon Fidelity Tests</title>
+ 
+ <style>
+   html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+   playcanvas-viewer { --progress-bar-color: transparent; }
+ </style>
+</head>
+<body>
+ <renderer-harness id="harness">
+   <span slot="title">PlayCanvas</span>
+   <playcanvas-viewer id="playcanvasViewer" slot="renderer">
+   </playcanvas-viewer>
+ </renderer-harness>
+ 
+ <script type="module" src="../../../dist/renderer-harness.js"></script>
+ <script type="module" src="../../../dist/playcanvas-viewer.js"></script>
+ <script>
+   harness.addEventListener('scenario-change', () => {
+     playcanvasViewer.addEventListener('model-visibility', (event) => {
+       if (event.detail.visible) {
+         self.dispatchEvent(new CustomEvent('model-ready'));
+       }
+     }, { once: true });
+ 
+     playcanvasViewer.scenario = harness.scenario;
+   });
+ </script>
+</body>
+</html>
