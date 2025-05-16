@@ -104,6 +104,7 @@ export class PlayCanvasViewer extends LitElement {
       clearColor: new pc.Color(0, 0, 0, 0),
       fov: scenario.verticalFoV // degree指定
     });
+    camera.camera!.requestSceneColorMap(true);
     this[$app].root.addChild(camera);
 
     // Camera Position
